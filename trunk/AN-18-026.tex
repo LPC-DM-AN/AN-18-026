@@ -70,10 +70,10 @@
 % 2. **DO NOT use %**                  to comment out sections of the abstract: the extractor will still grab those lines (and they won't be comments any longer!).
 % 3. For PASs: **DO NOT use tex macros**         in the abstract: CDS MathJax processor used on the abstract doesn't understand them _and_ will only look within $$. The abstracts for papers are hand formatted so macros are okay.
 \abstract{
-We present a search for events with a signature characterized by large
-missing transverse energy and a boosted Higgs boson that has decayed
-into a pair of bottom quarks in pp collisions at a center-of-mass
-energy of 13 TeV in a dataset corresponding to an integrated luminosity of 36\,$\text{fb}^{-1}$. Observations are interpreted in terms of new particles and couplings in various theoretical scenarios that predict such signatures in the context of Beyond Standard Model physics and associated Dark Matter production.  Upper bounds on the production cross sections of such scenarios are placed.
+We present a search for dark Higgs boson production in pp collisions at a center-of-mass energy of 13 TeV in a dataset corresponding to an integrated luminosity of 36\,$\text{fb}^{-1}$. Observations are interpreted in terms of new particles and couplings in various theoretical scenarios that predict such signatures in the context of Beyond Standard Model physics and associated Dark Matter production.  Upper bounds on the production cross sections of such scenarios are placed.
+
+%events with a signature characterized by large missing transverse energy and a boosted Higgs boson that has decayed
+%into a pair of bottom quarks in pp collisions at a center-of-mass energy of 13 TeV in a dataset corresponding to an integrated luminosity of 36\,$\text{fb}^{-1}$. Observations are interpreted in terms of new particles and couplings in various theoretical scenarios that predict such signatures in the context of Beyond Standard Model physics and associated Dark Matter production.  Upper bounds on the production cross sections of such scenarios are placed.
 }
 
 % >> PDF Metadata
@@ -113,7 +113,7 @@ pdfkeywords={CMS, physics, software, computing}}
 
 \input{fit.tex} %edit add description on fitting on mass bin
 
-\input{systematics.tex}
+\input{systematics.tex} %edit, remove pt-depedent; trigger eff below 200 remove
 
 \input{results.tex}
 
