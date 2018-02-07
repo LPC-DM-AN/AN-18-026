@@ -4,7 +4,7 @@
 The results are extracted performing a binned fit (using the Higgs Combine tool (Ref~\cite{COMBINE})) to the missing energy spectrum in bin of soft drop mass [25 GeV $< m_{SD} <$ 75 GeV],[75 GeV $< m_{SD} <$ 100 GeV],[100 GeV $< m_{SD} <$ 150 GeV] and [150 GeV $< m_{SD} <$ 3000 GeV], fitting simultaneously over all the control regions and a signal region.
 For each control regions, the recoil variable $U$ is computed removing either the photon, the muon(s), or the electron(s)from the \MET calculation. Both the normalization and the shape of the $t\bar{t}$, W+jets, and Z+jets background processes are estimated by deriving a scale factor between data and Monte Carlo in bins of recoil. 
 
- The fit is performed tying each \MET bin of the signal region to the same recoil bin of each control region, treating the systematic uncertainties as nuisance parameters. 
+The fit is performed trying each \MET bin of the signal region to the same recoil bin of each control region, treating the systematic uncertainties as nuisance parameters. 
 Both shape and normalization (rate) uncertainties are taken into account. The rate uncertainties arise from luminosity and cross-section uncertainties, as well as uncertainties in the lepton reconstruction in the control regions. The shape uncertainties are derived for the multi control region fit, as well as from intrinsic uncertainties from the reconstructed objects (jet energy scale, resolution, and missing energy). Uncertainties due to the limited MC statistics (bin-by-bin) are also included.
 
 %In addition, the predictions of $Z\rightarrow\nu\nu$ and $W\rightarrow(\ell)\nu$ are constrained in the signal region, allowing the single-lepton $W$ control regions to constrain the $Z\rightarrow\nu\nu$ estimation.
@@ -36,12 +36,12 @@ The transfer factors for events in control regions that fail the minimum double-
 The contribution of W+jets production in the $t\bar{t}$ fail control region (enhanced by the anti-double-b requirement) is modeled with data through the transfer factor $R_i^{b\ell_{fail}}$.
 
 
-The expression for the likelihood that is maximized by the fit for a single category is:
+The expression for the likelihood that is maximized by the fit for a single category for both pass and fail the double-b requirement are:
 
 {\scriptsize
 
 \begin{align}
-  \mathcal{L}(\pmb\mu^{W\rightarrow\ell\nu},\pmb\mu^{Z\rightarrow\nu\nu},\pmb\mu^{t\bar{t}},\mu;\pmb\theta) ~= 
+  \mathcal{L}(\pmb\mu^{W\rightarrow\ell\nu},\pmb\mu^{Z\rightarrow\nu\nu},\pmb\mu^{t\bar{t}},\mu;\pmb\theta)_{pass} ~= 
     & \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{\ell\ell_{pass}}\Big| B_i^{\ell\ell_{pass}}(\pmb\theta) 
                                                    + \frac{\mu^{Z\rightarrow\nu\nu}_i}{R^{\ell\ell_{pass}}_i(\pmb\theta)}\cdot SF^{\mathrm{Z+jets~mis-tag}}_{pass} \right) \nonumber \\
     & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{b\ell_{pass}}\Big| B_i^{b\ell_{pass}}(\pmb\theta) 
@@ -49,14 +49,31 @@ The expression for the likelihood that is maximized by the fit for a single cate
     & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{\ell_{pass}}\Big| B_i^{\ell_{pass}}(\pmb\theta) 
                                                           + \frac{\mu^{W\rightarrow(\ell)\nu}_i}{R^{\ell_{pass}}_i(\pmb\theta)}\cdot SF^{\mathrm{W+jets~mis-tag}}_{pass} 
                                                           + \frac{\mu^{t\bar{t}}}{R^{(b)\ell_{pass}}_i(\pmb\theta)}\cdot SF^{t\bar{t}~\mathrm{mis-tag}}_{pass} \right) \nonumber \\
-    & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{\ell\ell_{fail}}\Big| B_i^{\ell\ell_{fail}}(\pmb\theta)
+                                                        
+%    & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{\ell\ell_{fail}}\Big| B_i^{\ell\ell_{fail}}(\pmb\theta)
+%                                                   + \frac{\mu^{Z\rightarrow\nu\nu}_i}{R^{\ell\ell_{fail}}_i(\pmb\theta)}\cdot SF^{\mathrm{Z+jets~mis-tag}}_{fail} \right) \nonumber \\
+%    & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{b\ell_{fail}}\Big| B_i^{b\ell_{fail}}(\pmb\theta)
+%                                                          + \frac{\mu^{W\rightarrow(\ell)\nu}_i}{R^{b\ell_{fail}}_i(\pmb\theta)} \cdot SF^{\mathrm{W+jets~mis-tag}}_{fail}
+%                                                          + \frac{\mu^{t\bar{t}}}{R^{b\ell_{fail}}_i(\pmb\theta)} \cdot SF^{t\bar{t}~\mathrm{mis-tag}}_{fail} \right) \nonumber \\
+%    & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{\ell_{fail}}\Big| B_i^{\ell_{fail}}(\pmb\theta)
+%                                                          + \frac{\mu^{W\rightarrow(\ell)\nu}_i}{R^{(b)\ell_{fail}}_i(\pmb\theta)} \cdot SF^{\mathrm{W+jets~mis-tag}}_{fail} \right)
+    \label{eq:likelihoodPass}
+\end{align}
+
+}
+
+{\scriptsize
+
+\begin{align}
+  \mathcal{L}(\pmb\mu^{W\rightarrow\ell\nu},\pmb\mu^{Z\rightarrow\nu\nu},\pmb\mu^{t\bar{t}},\mu;\pmb\theta)_{fail} ~=
+    & \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{\ell\ell_{fail}}\Big| B_i^{\ell\ell_{fail}}(\pmb\theta)
                                                    + \frac{\mu^{Z\rightarrow\nu\nu}_i}{R^{\ell\ell_{fail}}_i(\pmb\theta)}\cdot SF^{\mathrm{Z+jets~mis-tag}}_{fail} \right) \nonumber \\
     & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{b\ell_{fail}}\Big| B_i^{b\ell_{fail}}(\pmb\theta)
-                                                          + \frac{\mu^{W\rightarrow(\ell)\nu}_i}{R^{b\ell_{fail}}_i(\pmb\theta)} \cdot SF^{\mathrm{W+jets~mis-tag}}_{fail}
-                                                          + \frac{\mu^{t\bar{t}}}{R^{b\ell_{fail}}_i(\pmb\theta)} \cdot SF^{t\bar{t}~\mathrm{mis-tag}}_{fail} \right) \nonumber \\
+                                                          + \frac{\mu^{t\bar{t}}}{R^{b\ell_{fail}}_i(\pmb\theta)}\cdot SF^{t\bar{t}~\mathrm{mis-tag}}_{fail} \right) \nonumber \\
     & \times \prod_{i\in\text{bins}} \text{Poisson} \left(d_i^{\ell_{fail}}\Big| B_i^{\ell_{fail}}(\pmb\theta)
-                                                          + \frac{\mu^{W\rightarrow(\ell)\nu}_i}{R^{(b)\ell_{fail}}_i(\pmb\theta)} \cdot SF^{\mathrm{W+jets~mis-tag}}_{fail} \right)
-    \label{eq:likelihood}
+                                                          + \frac{\mu^{W\rightarrow(\ell)\nu}_i}{R^{\ell_{fail}}_i(\pmb\theta)}\cdot SF^{\mathrm{W+jets~mis-tag}}_{fail}
+                                                          + \frac{\mu^{t\bar{t}}}{R^{(b)\ell_{fail}}_i(\pmb\theta)}\cdot SF^{t\bar{t}~\mathrm{mis-tag}}_{fail} \right) \nonumber \\
+    \label{eq:likelihoodFail}
 \end{align}
 
 }
