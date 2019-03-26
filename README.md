@@ -6,11 +6,13 @@ As a first step, fork the central repository in your github account.
 
 Log into lxplus and in  your public area setup the svn repository:
 ```
-svn co -N svn+ssh://svn.cern.ch/reps/tdr2
-cd tdr2/
+svn co -N svn+ssh://svn.cern.ch/reps/tdr2 myDir # where myDir is a placeholder for a name of your choice
+cd myDir
 svn update utils
 svn update -N notes
 svn update notes/AN-18-026
+eval `./notes/tdr runtime -csh` # for tcsh. use -sh for bash.
+
 ```
 Inside the svn repository, init github:
 
@@ -25,10 +27,15 @@ git pull https://github.com/YOUR_GITHUB_USERNAME/AN-18-026.git master
 
 ```
 Edit a file and push the changes to your forked repo:
-
 ```
+```
+Edit the template, then to build the document
+cd notes/AN-18-026/trunk
+tdr --style=an b AN-18-026
+```
+
 git add EDITED_FILE
-git commit -m “first push”
+git commit -m 'first push'
 git remote add origin https://github.com/YOUR_GITHUB_USERNAME/AN-18-026.git
 git push -u origin master
 ```
